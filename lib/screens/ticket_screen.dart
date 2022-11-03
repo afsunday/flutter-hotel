@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:ls_app/screens/ticket_view.dart';
+import 'package:ls_app/utils/app_info_list.dart';
 import 'package:ls_app/utils/app_layout.dart';
 import 'package:ls_app/utils/app_styles.dart';
 import 'package:ls_app/widgets/ticket_tabs.dart';
@@ -24,7 +26,14 @@ class TicketScreen extends StatelessWidget {
                   Text('Tickets', style: Styles.headLineStyle1
                       .copyWith(fontSize: AppLayout.getHeight(28))),
                   const Gap(20),
-                  const AppTicketTabs(firstTab: 'Upcoming', secondTab: 'Previous')
+                  const AppTicketTabs(firstTab: 'Upcoming', secondTab: 'Previous'),
+                  const Gap(20),
+                  
+                  // Bottom tcket item
+                  Container(
+                    padding: const EdgeInsets.only(left: 16),
+                    child: TicketView(ticket: ticketList[0], isColor: true)
+                  ),
                 ],
               )
             ],
