@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ls_app/utils/app_layout.dart';
 import 'package:ls_app/utils/app_styles.dart';
+import 'package:ls_app/widgets/layout_builder_widget.dart';
 import 'package:ls_app/widgets/thick_container.dart';
 
 class TicketView extends StatelessWidget {
@@ -14,8 +15,8 @@ class TicketView extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return SizedBox(
-      width: size.width * 0.85,
-      height: AppLayout.getHeight(185),
+      width: size.width * 0.82,
+      // height: AppLayout.getHeight(169),
       child: Container(
         margin: EdgeInsets.only(right: AppLayout.getHeight(16)),
         child: Column(
@@ -60,24 +61,11 @@ class TicketView extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
+
+          const Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  return Flex(
-                    direction: Axis.horizontal,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: List.generate(
-                        (constraints.constrainWidth() / 15).floor(), (index) {
-                          return Text('-',
-                            style: TextStyle(color: isColor == null ? Colors.white : Colors.grey.shade500),
-                          );
-                    }),
-                  );
-                },
-              ),
+              padding: EdgeInsets.all(10),
+              child: AppLayoutBuilderWidget(isColor: null, sections: 6)
             ),
           ),
           SizedBox(
@@ -103,8 +91,10 @@ class TicketView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: isColor == null ? Styles.orangeColor : Colors.white,
-        borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(isColor== null ? 15: 0), 
+          bottomRight: Radius.circular(isColor== null ? 15: 0),
+        ),
       ),
       padding: const EdgeInsets.only(left: 16, top: 10, bottom: 16, right: 16),
       child: Column(
@@ -127,7 +117,7 @@ class TicketView extends StatelessWidget {
                   children: [
                     Text(
                       '${ticket['departure_time']}',
-                      style: isColor == null ? Styles.headLineStyle3.copyWith(color: Colors.white) : Styles.headLineStyle3,
+                      style: isColor == null ? Styles.headLineStyle3.copyWith(color: Colors.white) : Styles.headLineStyle3.copyWith(color: Colors.black),
                     ),
                     Text(
                       'Departure time',
@@ -219,7 +209,7 @@ class TicketView extends StatelessWidget {
           child: Text(
             '${ticket['flying_time']}',
             textAlign: TextAlign.center,
-            style: isColor == null ? Styles.headLineStyle4.copyWith(color: Colors.white) : Styles.headLineStyle4,
+            style: isColor == null ? Styles.headLineStyle4.copyWith(color: Colors.white) : Styles.headLineStyle4.copyWith(color: Colors.black),
           ),
         ),
         SizedBox(
