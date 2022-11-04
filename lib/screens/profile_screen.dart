@@ -82,6 +82,7 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   Container(
                     height: 90,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: Styles.primaryColor,
                       borderRadius: BorderRadius.circular(15)
