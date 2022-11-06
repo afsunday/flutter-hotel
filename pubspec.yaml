@@ -38,6 +38,7 @@ dependencies:
   get:
   gap: ^2.0.0
   barcode_widget: ^2.0.2
+  flutter_native_splash: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +50,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  flutter_launcher_icons: ^0.9.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -64,6 +66,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/splash/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -91,3 +94,21 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
+#Just add these towards the end
+# Launch icon settings
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/splash/om_splash.png"
+  adaptive_icon_background: "#FFD1A6"
+  adaptive_icon_foreground: "assets/splash/om_splash.png"
+
+# Splash Screen Settings
+flutter_native_splash:
+  #general
+  background_image: "assets/splash/om_lotus_splash.png"
+  android_12:
+    image: assets/splash/om_lotus_splash_1152x1152.png
+    # icon_background_color: "#FFD1A6"
